@@ -1,0 +1,116 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  color:black;
+}
+  body {
+      font-family: 'Roboto', sans-serif; /* Googleoboto font for a more authentic look */
+      background-color: wheat;
+      margin: 50;
+      display: flex;
+      justify-content:center ;
+      align-items: top;
+      height: 100vh;
+    radius:50px;
+    border-radius:35px
+    padding:40px
+   
+    }
+
+       .search-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        border: 2px solid #ccc;
+        border-radius: 20px;
+        padding: 5px 10px;
+      
+    }
+    
+    .search-input {
+        border: none;
+        outline: none;
+        width: 100%;
+        padding: 5px;
+        border-radius: 20px;
+    }
+    
+    .search-button {
+        background-color: #4285f4;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    #t{
+      background:wheat;
+      height:500px;
+      background:url('/storage/emulated/0/Android/bd35caa1d66da3a15ed952b4ac1010f7.jpg');
+       background-size:cover;
+      border-radius:5%;
+      padding:46 00px;
+      border: 4px solid
+      
+    }
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  align-items:top;
+}
+  
+
+#search-input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+#search-button {
+  padding: 10px 15px;
+  background-color: #4285f4;
+  color: #fff;
+  border: 1px solid #4285f4;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+#search-button:hover {
+  background-color: #3367d6;
+}
+      #clock {
+        font-size: 2.10em;
+        font-border:black
+        background;
+        color:white;
+        align-items:center
+        
+        padding:35px;
+        border-radius:5%;
+        top:20%;
+        
+    }
+#apps{
+  background:rgba(244,344,244,25)};
+  background-filter:blur;
+  height:4x;
+  align-items:bottom;
+  justify-content:space between;
+  gap:3em;
+  backdrop-filter:blur(3px);
+}
+.apps{
+  background: red;
+  background:rgba(244,344,244,25)};
+  background-filter:blur;
+  height:4x;
+  align-items:bottom;
+  justify-content:space between;
+  gap:3em;
+  backdrop-filter:blur(3px);
+}
+
