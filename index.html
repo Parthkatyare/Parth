@@ -1,0 +1,128 @@
+<!D<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+<style>body {
+  font-family: sans-serif;
+  background-color: #1c1c1c;
+  color: white;
+}
+
+.btn {
+  background-color: transparent;
+  color: black;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
+.btn:hover {
+  color:white
+}
+
+.playing {
+  text-align: center;
+  color:black;
+}
+#container{
+  background:wheat;
+  border-radius:4px
+}</style>
+    <title>Audio Player</title>
+  </head>
+  <body><br><br><br>
+    <div id="container">
+    <h2 class="playing">Now playing- <span class="song-name"></span></h2>
+      <br><br><br>
+    <div class="controls">
+      <button class="btn previous"><i class="ph-bold ph-skip-back"></i></button>
+      <button class="btn play-pause">
+        <i id="play-pause-icon" class="ph-bold ph-play"></i>
+      </button>
+      <button class="btn next"><i class="ph-bold ph-skip-forward"></i></button>
+    </div>
+  </body>
+<script>const cartoonAudio = new Audio('/storage/emulated/0/snaptube/download/SnapTube Audio/Moti Chain Mota Paisa [slowed   reverb](MP3_160K).mp3');
+const forceAudio = new Audio('/storage/emulated/0/snaptube/download/SnapTube Audio/ANIMAL_ Abrar_s Entry - Jamal Kudu (Lyrical Video) _ Bobby Deol _ Sandeep Vanga _ Bhushan Kumar(MP3_160K).mp3');
+const squeakyAudio = new Audio('/storage/emulated/0/snaptube/download/SnapTube Audio/ANIMAL_ ARJAN VAILLY _ Ranbir Kapoor _ Sandeep Vanga _ Bhupinder B_ Manan B _ Bhushan K(MP3_160K).mp3');
+const hopeAudio = new Audio('/storage/emulated/0/snaptube/download/SnapTube Audio/Baazigar__Slowed Reverb__Bollywood song__HINDI song lofi__ _lofi _lofimusic(MP3_160K).mp3');
+const janjiAudio = new Audio('/storage/emulated/0/Android/LIFE - Ujjwal X Sez On The Beat X Panther  (Official Music Video) _ Techno Gamerz.mp3');
+
+// selecting elements
+const prevBtn = document.querySelector('.previous');
+const playBtn = document.querySelector('.play-pause');
+const nextBtn = document.querySelector('.next');
+const songName = document.querySelector('.song-name');
+const playPauseIcon = document.querySelector('#play-pause-icon');
+
+
+const songs = [
+  { ele: cartoonAudio, audioName: 'motichain mota paisa' },
+  { ele: forceAudio, audioName: 'Animal_akbhars entry_jamalkadu' },
+  { ele: squeakyAudio, audioName: 'Animal_ARJAN valley' },
+  { ele: hopeAudio, audioName: 'bazigar x mcstan' },
+  { ele: janjiAudio, audioName: 'Life_Ujwal sez on a beat boy ' },
+];
+
+for(const song of songs) {
+  song.ele.addEventListener('ended', ()=> {
+    updateSong('next');
+    playPauseSong();
+  })
+}
+
+let current = 0;
+let currentSong = songs[current].ele;
+songName.textContent = songs[current].audioName;
+
+playBtn.addEventListener('click',()=> {
+  playPauseSong();
+})
+
+nextBtn.addEventListener('click', () => {
+  updateSong('next');
+  playPauseSong();
+});
+
+prevBtn.addEventListener('click', () => {
+  updateSong('prev');
+  playPauseSong();
+});
+
+const updateSong = (action)=> {
+  currentSong.pause();
+  currentSong.currentTime = 0;
+
+  if(action === 'next'){
+    current++;
+    if(current > songs.length -1) current = 0;
+  }
+  if(action === 'prev'){
+    current--;
+    if(current < 0) current = songs.length - 1;
+  }
+  currentSong = songs[current].ele;
+  songName.textContent = songs[current].audioName;
+}
+
+const playPauseSong = ()=> {
+  if(currentSong.paused){
+    currentSong.play();
+    playPauseIcon.className = 'ph-bold ph-pause';
+  }
+  else {
+    currentSong.pause();
+    playPauseIcon.className = 'ph-bold ph-play';
+  }
+}</script>
+</html>>
